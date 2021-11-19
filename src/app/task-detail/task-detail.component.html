@@ -1,0 +1,8 @@
+<div *ngIf="task">
+    <h2>{{task.description | uppercase}} Details</h2>
+    <div><span>id: </span>{{task.id}}</div>
+    <div>
+        {{task.body}}
+    </div>
+    <app-client-detail></app-client-detail>
+</div>
