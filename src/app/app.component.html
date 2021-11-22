@@ -1,3 +1,20 @@
-<h2>stuff</h2>
-<router-outlet></router-outlet>
+<div class="d-flex justify-content-around">
+    <div class="mr-auto text-muted">
+        <h1>Task Scheduler</h1>
+    </div>
+    <div class="ml-auto">
+        <ul ngbNav #nav="ngbNav" class="nav-pills" >
+            <li ngbNavItem *ngFor="let link of links">
+                <a ngbNavLink [routerLink]=[link.fragment]>{{ link.title }}</a>
+            </li>
+        </ul>   
+    </div>
+</div>
+
+<div [ngbNavOutlet]="nav"></div>
+<hr>
+<div class="container-fluid">
+    <router-outlet></router-outlet>
+</div>
+
 
