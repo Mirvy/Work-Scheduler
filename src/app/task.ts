@@ -4,5 +4,5 @@ export interface Task{
     id: number;
     description: string;
     body: string;
-    client: Client;
+    urgent: Boolean;
 }
