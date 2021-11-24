@@ -10,6 +10,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { ClientsComponent } from './clients/clients.component';
+import { MessagesComponent } from './messages/messages.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,11 +21,13 @@ import { ClientsComponent } from './clients/clients.component';
     DashboardComponent,
     CalendarComponent,
     TasksComponent,
-    ClientsComponent
+    ClientsComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     NgbModule
   ],
   providers: [],

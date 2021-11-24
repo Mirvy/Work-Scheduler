@@ -1,1 +1,6 @@
-<p>dashboard works!</p>
+<h2>Tasks for Today</h2>
+<div class="d-flex flex-column">
+    <div *ngFor="let task of tasks">
+        <a >{{task.description}}</a>
+    </div>
+</div>
