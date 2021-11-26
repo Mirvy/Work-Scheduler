@@ -1,6 +1,22 @@
-<h2>Tasks for Today</h2>
-<div class="d-flex flex-column">
-    <div *ngFor="let task of tasks">
-        <a >{{task.description}}</a>
+<h2>Tasks due Today</h2>
+<div class="d-flex row">
+        <div *ngFor="let task of tasks" class="card" style="width: 18rem;">
+            <div *ngIf="task && isToday(task.created)">
+                <app-task-card [task]="task"></app-task-card>
+            </div>
+        </div>
+        <div *ngIf="tasks.length < 1">
+            <h3>You have no tasks due today.</h3>
+        </div>
+</div>
+<h2>Upcoming Tasks Due This Week</h2>
+<div class="d-flex row">
+    <div *ngFor="let task of tasks" class="card" style="width: 18rem;">
+        <div *ngIf="task && isWithinAWeek(task.created)">
+            <app-task-card [task]="task"></app-task-card>
+        </div>
+    </div>
+    <div *ngIf="tasks.length < 1">
+        <h3>You have no tasks due this week.</h3>
     </div>
 </div>

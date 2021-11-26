@@ -5,4 +5,6 @@ export interface Task{
     description: string;
     body: string;
     urgent: Boolean;
+    created: string;
+    updated: string;
 }

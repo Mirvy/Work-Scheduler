@@ -12,6 +12,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { ClientsComponent } from './clients/clients.component';
 import { MessagesComponent } from './messages/messages.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TaskCardComponent } from './task-card/task-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     CalendarComponent,
     TasksComponent,
     ClientsComponent,
-    MessagesComponent
+    MessagesComponent,
+    TaskCardComponent
   ],
   imports: [
     BrowserModule,
