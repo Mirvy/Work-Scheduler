@@ -1,1 +1,37 @@
-<p>tasks works!</p>
+<div class="container">
+    <form>
+        <div class="form-group">
+            <div class="input-group">
+            <div class="input-group-addon">
+                <i class="glyphicon glyphicon-search"></i>
+            </div>
+            <input
+                type="text"
+                class="form-control"
+                name="searchString"
+                placeholder="Type to search description..."
+                [(ngModel)]="searchString"
+            />
+            </div>
+        </div>
+    </form>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Description</th>
+                    <th scope="col">Created</th>
+                    <th scope="col">Updated</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let task of tasks | tableSearch : 'description' : searchString; let i = index">
+                    <td>{{task.description}}</td>
+                    <td>{{task.created | date}}</td>
+                    <td>{{task.updated | date}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

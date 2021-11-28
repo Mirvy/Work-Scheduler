@@ -7,4 +7,5 @@ export interface Task{
     urgent: Boolean;
     created: string;
     updated: string;
+    due: string;
 }

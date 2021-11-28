@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,8 @@ import { ClientsComponent } from './clients/clients.component';
 import { MessagesComponent } from './messages/messages.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TaskCardComponent } from './task-card/task-card.component';
+import { TableFilterPipe } from './table-filter.pipe';
+import { TableSearchPipe } from './table-search.pipe';
 
 @NgModule({
   declarations: [
@@ -24,12 +27,15 @@ import { TaskCardComponent } from './task-card/task-card.component';
     TasksComponent,
     ClientsComponent,
     MessagesComponent,
-    TaskCardComponent
+    TaskCardComponent,
+    TableFilterPipe,
+    TableSearchPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     NgbModule
   ],
   providers: [],
