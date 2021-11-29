@@ -22,6 +22,7 @@
                     <th scope="col">Description</th>
                     <th scope="col">Created</th>
                     <th scope="col">Updated</th>
+                    <th scope="col">Due Date</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,9 +30,20 @@
                     <td>{{task.description}}</td>
                     <td>{{task.created | date}}</td>
                     <td>{{task.updated | date}}</td>
+                    <td>{{task.due | date}}</td>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-warning">Edit</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </div>
+
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+<div class="container">
+    <div class="btn-group">
+      <button type="button" class="btn btn-success">Add New Task</button>
+    </div>
+  </div>
 

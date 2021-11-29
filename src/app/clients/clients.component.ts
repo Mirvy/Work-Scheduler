@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Client } from '../client';
+
+import { ClientService } from '../client.service';
 
 @Component({
   selector: 'app-clients',
@@ -11,18 +14,22 @@ export class ClientsComponent implements OnInit {
   country?: string = "";
 
   countries: string[] = ['Korea', 'Japan', 'USA', 'London', 'Philippines', 'Thailand'];
+
+  clients: Client[] = [];
   
-  users: any[] = [
-    { name: 'Kristy', gender: 'female', country: 'Korea' },
-    { name: 'Nick', gender: 'male', country: 'Japan' },
-    { name: 'Ariana', gender: 'female', country: 'USA' },
-    { name: 'Joe', gender: 'male', country: 'London' },
-    { name: 'Albert', gender: 'male', country: 'Philippines' },
-  ];
-  
-  constructor() { }
+  constructor(
+    private clientService: ClientService
+  ) { }
 
   ngOnInit(): void {
+    this.getClients();
   }
+
+  getClients(): void {
+    this.clientService.getClients()
+      .subscribe(clients => {this.clients = clients});
+  }
+
+
 
 }

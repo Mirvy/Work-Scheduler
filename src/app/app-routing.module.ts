@@ -6,6 +6,8 @@ import { ClientsComponent } from './clients/clients.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
+import { ClientFormComponent } from './client-form/client-form.component';
+import { ClientDetailComponent } from './client-detail/client-detail.component';
 
 
 const routes: Routes = [
@@ -13,6 +15,8 @@ const routes: Routes = [
   {path: 'calendar', component: CalendarComponent},
   {path: 'tasks', component: TasksComponent},
   {path: 'clients', component: ClientsComponent},
+  {path: 'clients/new', component: ClientFormComponent},
+  {path: 'clients/edit/:id', component: ClientDetailComponent},
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'}
 ];
 

@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TaskCardComponent } from './task-card/task-card.component';
 import { TableFilterPipe } from './table-filter.pipe';
 import { TableSearchPipe } from './table-search.pipe';
+import { ClientFormComponent } from './client-form/client-form.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { TableSearchPipe } from './table-search.pipe';
     MessagesComponent,
     TaskCardComponent,
     TableFilterPipe,
-    TableSearchPipe
+    TableSearchPipe,
+    ClientFormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-<div *ngIf="client" class="container">
+<div class="container">
     <form>
         <div class="row mb-3">
           <label for="inputName" class="col-sm-2 col-form-label">Name</label>
@@ -37,7 +37,8 @@
           </div>
         </fieldset>
             <a routerLink="/clients">
-                <button type="submit" class="btn btn-primary">Add Client</button>
+                <button type="submit" class="btn btn-primary" 
+                (click)="add(clientName.value,clientDescription.value,scopeRadioChoice,clientEmail.value,clientNotes.value)">Add Client</button>
             </a>
       </form>
 </div>

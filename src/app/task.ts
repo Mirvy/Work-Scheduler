@@ -1,4 +1,4 @@
-import { Client } from "src/client";
+import { Client } from "./client";
 
 export interface Task{
     id: number;
@@ -8,4 +8,5 @@ export interface Task{
     created: string;
     updated: string;
     due: string;
+    client: Client;
 }

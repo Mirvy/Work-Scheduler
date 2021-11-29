@@ -25,16 +25,37 @@
     <table class="table table-striped table-hover table-bordered">
       <thead>
         <th>Name</th>
-        <th>Gender</th>
-        <th>Country</th>
+        <th>description</th>
+        <th>scope</th>
+        <th>email</th>
+        <th>notes</th>
+        <th>created</th>
+        <th>updated</th>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users | tableFilter: form.value">
-          <td>{{ user.name }}</td>
-          <td>{{ user.gender }}</td>
-          <td>{{ user.country }}</td>
+        <tr *ngFor="let client of clients | tableFilter: form.value">
+          <td>{{ client.name }}</td>
+          <td>{{ client.description }}</td>
+          <td>{{ client.scope }}</td>
+          <td>{{ client.email }}</td>
+          <td>{{ client.notes }}</td>
+          <td>{{ client.created | date}}</td>
+          <td>{{ client.updated | date}}</td>
+          <div class="btn-group" role="group">
+            <a routerLink="/clients/edit/{{client.id}}">
+              <button type="button" class="btn btn-warning">Edit</button>
+            </a>
+            <button type="button" class="btn btn-danger">Delete</button>
+          </div>
         </tr>
       </tbody>
     </table> 
   </form> 
+</div>
+<div class="container">
+  <div class="btn-group">
+    <a routerLink="/clients/new">
+      <button type="button" class="btn btn-success">Add New Client</button>
+    </a>
+  </div>
 </div>
