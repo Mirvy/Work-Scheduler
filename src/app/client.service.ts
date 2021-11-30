@@ -40,7 +40,8 @@ export class ClientService {
   }
 
   updateClient(client: Client): Observable<any> {
-    return this.http.put(this.clientsUrl,client, this.httpOptions)
+    let url =  this.clientsUrl + `/${client.id}`;
+    return this.http.put(url,client, this.httpOptions)
       .pipe(
         tap(_ => this.log(`updated client id=${client.id}`)),
         catchError(this.handleError<any>('updateClient'))

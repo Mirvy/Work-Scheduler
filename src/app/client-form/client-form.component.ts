@@ -11,7 +11,7 @@ import { MessageService } from '../message.service';
 })
 export class ClientFormComponent implements OnInit {
 
-  radioChoices: string[] =["Personel","Professional"];
+  radioChoices: string[] =["Personal","Professional"];
 
   scopeRadioChoice: string = this.radioChoices[1];
 
@@ -29,6 +29,7 @@ export class ClientFormComponent implements OnInit {
   }
 
   radioChangeHandler(event: any){
+    this.messageService.add(`attempting to change radioSelection: ${event.target.value}`)
     if(event.target.value instanceof String){
       this.scopeRadioChoice = event.target.value;
     }

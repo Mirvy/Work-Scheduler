@@ -17,6 +17,7 @@ import { TaskCardComponent } from './task-card/task-card.component';
 import { TableFilterPipe } from './table-filter.pipe';
 import { TableSearchPipe } from './table-search.pipe';
 import { ClientFormComponent } from './client-form/client-form.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ClientFormComponent } from './client-form/client-form.component';
     TaskCardComponent,
     TableFilterPipe,
     TableSearchPipe,
-    ClientFormComponent
+    ClientFormComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,

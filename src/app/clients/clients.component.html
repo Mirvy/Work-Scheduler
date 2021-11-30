@@ -45,7 +45,7 @@
             <a routerLink="/clients/edit/{{client.id}}">
               <button type="button" class="btn btn-warning">Edit</button>
             </a>
-            <button type="button" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-danger" (click)="openConfirmDialog(client)">Delete</button>
           </div>
         </tr>
       </tbody>

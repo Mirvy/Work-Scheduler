@@ -15,7 +15,7 @@ export class ClientDetailComponent implements OnInit {
 
   radioChoices: string[] =["Personel","Professional"];
 
-  scopeRadioChoice: string = this.radioChoices[1];
+  scopeRadioChoice: string = this.radioChoices[this.radioChoices.length];
 
   constructor(
     private clientService: ClientService,
@@ -32,8 +32,12 @@ export class ClientDetailComponent implements OnInit {
       .subscribe(client => this.client = client);
   }
 
-  save(): void{
+  save(name: string, description: string, email: string, scope: string, notes: string): void{
     if(this.client){
+      this.client.name = name;
+      this.client.description = description;
+      this.client.email = email;
+      this.client.scope = scope;
       this.clientService.updateClient(this.client)
         .subscribe()
     }

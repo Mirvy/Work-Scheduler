@@ -3,25 +3,25 @@
         <div class="row mb-3">
           <label for="inputName" class="col-sm-2 col-form-label">Name</label>
           <div class="col-sm-10">
-            <input #clientName type="text" class="form-control" id="inputName">
+            <input #clientName type="text" class="form-control" id="inputName" [(ngModel)]="client.name" [ngModelOptions]="{standalone: true}">
           </div>
         </div>
         <div class="row mb-3">
           <label for="inputDescription" class="col-sm-2 col-form-label">Description</label>
           <div class="col-sm-10">
-            <input #clientDescription type="text" class="form-control" id="inputDescription">
+            <input #clientDescription type="text" class="form-control" id="inputDescription" [(ngModel)]="client.description" [ngModelOptions]="{standalone: true}">
           </div>
         </div>
         <div class="row mb-3">
             <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
-              <input #clientEmail type="email" class="form-control" id="inputEmail">
+              <input #clientEmail type="text" class="form-control" id="inputEmail" [(ngModel)]="client.email" [ngModelOptions]="{standalone: true}">
             </div>
           </div>
           <div class="row mb-3">
             <label for="inputNotes" class="col-sm-2 col-form-label">Notes</label>
             <div class="col-sm-10">
-              <input #clientNotes type="text" class="form-control" id="inputNotes">
+              <input #clientNotes type="text" class="form-control" id="inputNotes" [(ngModel)]="client.notes" [ngModelOptions]="{standalone: true}">
             </div>
           </div>
         <fieldset class="row mb-3">
@@ -37,7 +37,7 @@
           </div>
         </fieldset>
             <a routerLink="/clients">
-                <button type="submit" class="btn btn-primary">Add Client</button>
+                <button type="submit" class="btn btn-primary" (click)="save(clientName.value, clientDescription.value, clientEmail.value, 'dummy', clientNotes.value)">Update Client</button>
             </a>
       </form>
 </div>
