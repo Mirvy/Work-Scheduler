@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +24,7 @@ import { TableSearchPipe } from './table-search.pipe';
 import { ClientFormComponent } from './client-form/client-form.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { TaskFormComponent } from './task-form/task-form.component';
+
 
 @NgModule({
   declarations: [
@@ -41,8 +47,12 @@ import { TaskFormComponent } from './task-form/task-form.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    CommonModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    NgbModalModule,
+    FlatpickrModule.forRoot(),
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [],
   bootstrap: [AppComponent]
