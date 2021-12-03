@@ -24,22 +24,6 @@ import {
   CalendarEventTimesChangedEvent,
   CalendarView } from 'angular-calendar';
 
-import { CalendarColor } from '../calendarColor';
-
-const colors: CalendarColor = {
-  red: {
-    primary: '#ad2121',
-    secondary: '#FAE3E3',
-  },
-  blue: {
-    primary: '#1e90ff',
-    secondary: '#D1E8FF',
-  },
-  yellow: {
-    primary: '#e3bc08',
-    secondary: '#FDF1BA',
-  },
-};
 
 @Component({
   selector: 'app-calendar',
@@ -48,6 +32,22 @@ const colors: CalendarColor = {
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
+
+  colors: any = {
+    red: {
+      primary: '#ad2121',
+      secondary: '#FAE3E3',
+    },
+    blue: {
+      primary: '#1e90ff',
+      secondary: '#D1E8FF',
+    },
+    yellow: {
+      primary: '#e3bc08',
+      secondary: '#FDF1BA',
+    },
+  };
+
   @ViewChild('modalContent', { static: true }) modalContent?: TemplateRef<any>;
 
   view: CalendarView = CalendarView.Month;
@@ -86,7 +86,7 @@ export class CalendarComponent implements OnInit {
       start: subDays(startOfDay(new Date()), 1),
       end: addDays(new Date(), 1),
       title: 'A 3 day event',
-      color: colors.red,
+      color: this.colors.red,
       actions: this.actions,
       allDay: true,
       resizable: {
@@ -98,21 +98,21 @@ export class CalendarComponent implements OnInit {
     {
       start: startOfDay(new Date()),
       title: 'An event with no end date',
-      color: colors.yellow,
+      color: this.colors.yellow,
       actions: this.actions,
     },
     {
       start: subDays(endOfMonth(new Date()), 3),
       end: addDays(endOfMonth(new Date()), 3),
       title: 'A long event that spans 2 months',
-      color: colors.blue,
+      color: this.colors.blue,
       allDay: true,
     },
     {
       start: addHours(startOfDay(new Date()), 2),
       end: addHours(new Date(), 2),
       title: 'A draggable and resizable event',
-      color: colors.yellow,
+      color: this.colors.yellow,
       actions: this.actions,
       resizable: {
         beforeStart: true,
@@ -173,7 +173,7 @@ export class CalendarComponent implements OnInit {
         title: 'New event',
         start: startOfDay(new Date()),
         end: endOfDay(new Date()),
-        color: colors.red,
+        color: this.colors.red,
         draggable: true,
         resizable: {
           beforeStart: true,
