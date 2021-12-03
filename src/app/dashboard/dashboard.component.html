@@ -1,9 +1,17 @@
+<h2>Urgent and Past Due Tasks</h2>
+<div class="d-flex row">
+    <div *ngFor="let task of pastDueTasks" class="card" style="width: 18rem;">
+        <app-task-card [task]="task"></app-task-card>
+    </div>
+    <div *ngIf="dailyTasks.length < 1">
+        <h3>You have no tasks due today.</h3>
+    </div>
+</div>
+<br><br>
 <h2>Tasks due Today</h2>
 <div class="d-flex row">
-    <div *ngFor="let task of tasks" class="card" style="width: 18rem;">
-        <div *ngIf="task && isToday(task.created)">
-            <app-task-card [task]="task"></app-task-card>
-        </div>
+    <div *ngFor="let task of dailyTasks" class="card" style="width: 18rem;">
+        <app-task-card [task]="task"></app-task-card>
     </div>
     <div *ngIf="dailyTasks.length < 1">
         <h3>You have no tasks due today.</h3>
@@ -12,10 +20,8 @@
 <br><br>
 <h2>Upcoming Tasks Due This Week</h2>
 <div class="d-flex row">
-    <div *ngFor="let task of tasks" class="card" style="width: 18rem;">
-        <div *ngIf="task && isWithinAWeek(task.created)">
-            <app-task-card [task]="task"></app-task-card>
-        </div>
+    <div *ngFor="let task of weeklyTasks" class="card" style="width: 18rem;">
+        <app-task-card [task]="task"></app-task-card>
     </div>
     <div *ngIf="weeklyTasks.length < 1">
         <h3>You have no tasks due this week.</h3>

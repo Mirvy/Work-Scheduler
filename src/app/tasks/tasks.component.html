@@ -1,4 +1,17 @@
 <div class="container">
+    <form novalidate #form="ngForm">
+        <div class="form-group">
+            <strong>Client</strong>
+            <select class="form-control"
+                    name="client"
+                    [(ngModel)]="id"
+                    (change)="log(form.value)">
+              <option></option>      
+              <option *ngFor="let client of clients"
+                      value="{{client.id}}">{{ client.name }}</option>
+            </select>
+          </div> 
+    </form>   
     <form>
         <div class="form-group">
             <div class="input-group">
@@ -22,18 +35,25 @@
                     <th scope="col">Description</th>
                     <th scope="col">Created</th>
                     <th scope="col">Updated</th>
+                    <th scope="col">Client</th>
                     <th scope="col">Due Date</th>
+                    <th scope="col">Urgent?</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let task of tasks | tableSearch : 'description' : searchString; let i = index">
+                <tr *ngFor="let task of tasks | tableFilter: form.value | tableSearch : 'description' : searchString; let i = index">
                     <td>{{task.description}}</td>
                     <td>{{task.created | date}}</td>
                     <td>{{task.updated | date}}</td>
+                    <td>{{ getClientName(task.client )}}</td>
                     <td>{{task.due | date}}</td>
+                    <td>{{ getUrgency(task.urgent) }}</td>
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-warning">Edit</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-info" >Resolve</button>
+                        <a routerLink="/tasks/edit/{{task.id}}">
+                            <button type="button" class="btn btn-warning">Edit</button>
+                        </a>     
+                        <button type="button" class="btn btn-danger" (click)="openConfirmDialog(task)">Delete</button>
                     </div>
 
                 </tr>
@@ -42,8 +62,15 @@
     </div>
 </div>
 <div class="container">
-    <div class="btn-group">
-      <button type="button" class="btn btn-success">Add New Task</button>
+    <div *ngIf="clients.length > 0; else noClients" class="btn-group">
+        <a routerLink="/tasks/new">
+            <button type="button" class="btn btn-success">Add New Task</button>
+        </a>
     </div>
-  </div>
+    <ng-template #noClients>
+        <div  class="btn-group">
+            <button type="button" class="btn btn-success" disabled>Please Add a Client to Proceed</button>
+        </div>
+    </ng-template>
+</div>
 

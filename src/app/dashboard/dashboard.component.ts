@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   tasks: Task[] = [];
   dailyTasks: Task[] = [];
   weeklyTasks: Task[] = [];
+  pastDueTasks: Task[] = [];
 
   constructor(
     private taskService: TaskService,
@@ -30,9 +31,13 @@ export class DashboardComponent implements OnInit {
       .subscribe(tasks => {
         this.tasks = tasks;
         for(let i = 0; i < this.tasks.length; ++i){
-          if(this.isToday(this.tasks[i].created)){
+          if(this.isPastDue(this.tasks[i].due) || this.tasks[i].urgent){
+            this.pastDueTasks.push(this.tasks[i]);
+          }
+          if(this.isToday(this.tasks[i].due)){
             this.dailyTasks.push(this.tasks[i]);
-          }else if(this.isWithinAWeek(this.tasks[i].created)){
+          }
+          if(this.isWithinAWeek(this.tasks[i].due)){
             this.weeklyTasks.push(this.tasks[i]);
           }
         }
@@ -53,6 +58,10 @@ export class DashboardComponent implements OnInit {
 
   isThisYear(dateTimeStamp: string): Boolean {
     return this.dateTimeService.isThisYear(dateTimeStamp);
+  }
+
+  isPastDue(dateTimeStamp: string): Boolean {
+    return this.dateTimeService.isPastDue(dateTimeStamp);
   }
 
 }

@@ -12,9 +12,15 @@ export class TaskCardComponent implements OnInit {
 
   @Input() task?: Task;
 
-  constructor() { }
+  constructor(
+    private dateTimeService: DateTimeService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  isPastDue(dateTimeStamp: string): Boolean {
+    return this.dateTimeService.isPastDue(dateTimeStamp);
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Client } from '../client';
 
+import { Client } from '../client';
 import { ClientService } from '../client.service';
 import { ConfirmDialogService } from '../confirm-dialog.service';
 
@@ -11,7 +11,7 @@ import { ConfirmDialogService } from '../confirm-dialog.service';
 })
 export class ClientsComponent implements OnInit {
   
-  gender?: string = "";
+  scope?: string = "";
   country?: string = "";
 
   countries: string[] = ['Korea', 'Japan', 'USA', 'London', 'Philippines', 'Thailand'];
@@ -29,7 +29,7 @@ export class ClientsComponent implements OnInit {
 
   getClients(): void {
     this.clientService.getClients()
-      .subscribe(clients => {this.clients = clients});
+      .subscribe(clients => this.clients = clients);
   }
 
   deleteClient(id: number): void {

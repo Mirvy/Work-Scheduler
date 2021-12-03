@@ -1,6 +1,16 @@
 <div *ngIf="task" class="card-body">
     <h5 class="card-title">{{ task.description }}</h5>
     <p class="card-text">{{ task.body }}</p>
-    <p>{{ task.created | date }}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <p>{{ task.due | date }}</p>
+    <div *ngIf="task.urgent; else pastDue">
+        <a href="#" class="btn btn-danger">Resolve Urgent Task</a>
+    </div>
+    <ng-template #pastDue >
+        <div *ngIf="isPastDue(task.due); else notUrgent">
+            <a href="#" class="btn btn-warning">Resolve Task</a>
+        </div>
+    </ng-template>
+    <ng-template #notUrgent>
+        <a href="#" class="btn btn-primary">Resolve Task</a>
+    </ng-template>
 </div>

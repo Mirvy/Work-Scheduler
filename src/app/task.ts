@@ -1,12 +1,13 @@
+import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
 import { Client } from "./client";
 
 export interface Task{
     id: number;
     description: string;
     body: string;
-    urgent: Boolean;
+    urgent: boolean;
     created: string;
     updated: string;
     due: string;
-    client: Client;
+    client: string;
 }
