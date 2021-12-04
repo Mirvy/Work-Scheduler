@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'calendar', component: CalendarComponent},
   {path: 'tasks', component: TasksComponent},
   {path: 'tasks/new', component: TaskFormComponent},
-  {path: 'clients/edit/:id', component: TaskDetailComponent},
+  {path: 'tasks/edit/:id', component: TaskDetailComponent},
   {path: 'clients', component: ClientsComponent},
   {path: 'clients/new', component: ClientFormComponent},
   {path: 'clients/edit/:id', component: ClientDetailComponent},

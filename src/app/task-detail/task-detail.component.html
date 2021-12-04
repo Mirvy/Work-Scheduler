@@ -1,8 +1,41 @@
-<div *ngIf="task">
-    <h2>{{task.description | uppercase}} Details</h2>
-    <div><span>id: </span>{{task.id}}</div>
-    <div>
-        {{task.body}}
-    </div>
-    <app-client-detail></app-client-detail>
+<div *ngIf="task" class="container">
+    <form>
+        <div class="row mb-3">
+          <label for="inputDescription" class="col-sm-2 col-form-label">Description</label>
+          <div class="col-sm-10">
+            <input #taskDescription type="text" class="form-control" id="inputDescription" [(ngModel)]="task.description" [ngModelOptions]="{standalone: true}">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="inputBody" class="col-sm-2 col-form-label">Body</label>
+          <div class="col-sm-10">
+            <textarea #taskBody type="text" class="form-control" id="inputBody" [(ngModel)]="task.body" [ngModelOptions]="{standalone: true}"></textarea>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="inputClient" class="col-sm-2 col-form-label">Due Date</label>
+          <div class="col-sm-10">
+            <input #taskDueDate class="form-control" placeholder="yyyy-mm-dd"
+                    name="dp" [(ngModel)]="this.dueDate"[ngModelOptions]="{standalone: true}" ngbDatepicker #d="ngbDatepicker">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input #taskUrgent class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                (change)="checkBoxChanged($event)" [(ngModel)]="this.task.urgent" >
+              <label class="form-check-label" for="flexCheckChecked">
+                Urgent?
+              </label>
+            </div>
+          </div>
+        </div>
+        <a routerLink="/tasks">
+            <button type="submit" class="btn btn-primary" 
+            (click)="save(taskDescription.value,taskBody.value,this.urgent,dueDate)">Update Task</button>
+        </a>
+      </form>
 </div>

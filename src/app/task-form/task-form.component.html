@@ -21,7 +21,7 @@
         <div class="row mb-3">
           <label for="inputBody" class="col-sm-2 col-form-label">Body</label>
           <div class="col-sm-10">
-            <input #taskBody type="text" class="form-control" id="inputBody">
+            <textarea #taskBody type="text" class="form-control" id="inputBody"></textarea>
           </div>
         </div>
         <div class="row mb-3">
@@ -38,7 +38,7 @@
           <div class="col-sm-10">
             <div class="form-check">
               <input #taskUrgent class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-                (changed)="checkBoxChanged($event)">
+                (change)="checkBoxChanged($event)">
               <label class="form-check-label" for="flexCheckChecked">
                 Urgent?
               </label>

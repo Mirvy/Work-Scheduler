@@ -125,7 +125,7 @@
               (keyup)="refresh.next()"
             />
           </td>
-          <td *ngIf="event.color.primary; else defaultPrimaryColor">
+          <td *ngIf="event.color; else defaultPrimaryColor">
             <input
               type="color"
               [(ngModel)]="event.color.primary"
@@ -141,7 +141,7 @@
               />
             </td>
           </ng-template>
-          <td *ngIf="event.color.secondary; else defaultSecondaryColor">
+          <td *ngIf="event.color; else defaultSecondaryColor">
             <input
               type="color"
               [(ngModel)]="event.color.secondary"

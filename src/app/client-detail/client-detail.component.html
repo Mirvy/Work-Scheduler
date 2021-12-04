@@ -21,7 +21,7 @@
           <div class="row mb-3">
             <label for="inputNotes" class="col-sm-2 col-form-label">Notes</label>
             <div class="col-sm-10">
-              <input #clientNotes type="text" class="form-control" id="inputNotes" [(ngModel)]="client.notes" [ngModelOptions]="{standalone: true}">
+              <textarea #clientNotes type="text" class="form-control" id="inputNotes" [(ngModel)]="client.notes" [ngModelOptions]="{standalone: true}"></textarea>
             </div>
           </div>
         <fieldset class="row mb-3">
